@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Kue Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .cake-card:hover { transform: translateY(-5px); }
+        .btn:active { transform: scale(0.95); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-pink-600 text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-2xl font-bold">🍰 Toko Kue Manis</h1>
+            <p class="text-pink-100">Pesan kue favoritmu online!</p>
+        </div>
+    </header>
+
+    <!-- Nav -->
+    <nav class="bg-pink-700 text-white">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" class="px-3 py-1 rounded hover:bg-pink-800 active:bg-pink-900">Semua</a>
+                <a href="#" class="px-3 py-1 rounded hover:bg-pink-800 active:bg-pink-900">Birthday</a>
+                <a href="#" class="px-3 py-1 rounded hover:bg-pink-800 active:bg-pink-900">Wedding</a>
+                <a href="#" class="px-3 py-1 rounded hover:bg-pink-800 active:bg-pink-900">Cupcake</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Grid Kue -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+            <!-- Kue 1 -->
+            <div class="cake-card bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
+                <div class="h-40 bg-pink-200 rounded-lg mb-4 flex items-center justify-center">
+                    <span class="text-5xl">🎂</span>
+                </div>
+                <h3 class="font-bold text-lg">Black Forest</h3>
+                <p class="text-gray-600 text-sm mb-3">Kue coklat dengan cherry</p>
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-pink-600">Rp 150.000</span>
+                    <button class="btn bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg">Pesan</button>
+                </div>
+            </div>
+
+            <!-- Kue 2 -->
+            <div class="cake-card bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
+                <div class="h-40 bg-yellow-100 rounded-lg mb-4 flex items-center justify-center">
+                    <span class="text-5xl">🍰</span>
+                </div>
+                <h3 class="font-bold text-lg">Red Velvet</h3>
+                <p class="text-gray-600 text-sm mb-3">Lembut dengan cream cheese</p>
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-pink-600">Rp 180.000</span>
+                    <button class="btn bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg">Pesan</button>
+                </div>
+            </div>
+
+            <!-- Kue 3 -->
+            <div class="cake-card bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
+                <div class="h-40 bg-blue-100 rounded-lg mb-4 flex items-center justify-center">
+                    <span class="text-5xl">🧁</span>
+                </div>
+                <h3 class="font-bold text-lg">Cupcake Set</h3>
+                <p class="text-gray-600 text-sm mb-3">6 pcs berbagai rasa</p>
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-pink-600">Rp 75.000</span>
+                    <button class="btn bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Pesan -->
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow p-6">
+            <h2 class="text-xl font-bold mb-4 text-center">Form Pemesanan</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Nama Pemesan</label>
+                    <input type="text" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-pink-500 focus:border-pink-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Pilih Kue</label>
+                    <select class="w-full border rounded-lg px-4 py-2">
+                        <option>Black Forest</option>
+                        <option>Red Velvet</option>
+                        <option>Cupcake Set</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Jumlah</label>
+                    <div class="flex items-center">
+                        <button class="bg-gray-200 w-8 h-8 rounded-l">-</button>
+                        <input type="text" value="1" class="border-y w-12 text-center py-1">
+                        <button class="bg-gray-200 w-8 h-8 rounded-r">+</button>
+                    </div>
+                </div>
+                <button class="w-full bg-pink-600 hover:bg-pink-700 text-white py-3 rounded-lg font-bold">Pesan Sekarang</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-pink-800 text-white text-center py-6 mt-8">
+        <p>📞 Hubungi: 0812-3456-7890</p>
+        <p class="text-pink-200 mt-2">© 2023 Toko Kue Manis</p>
+    </footer>
+
+    <script>
+        // Interaksi tombol pesan
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const cakeName = btn.parentElement.parentElement.querySelector('h3').textContent;
+                alert(`Kue "${cakeName}" ditambahkan ke keranjang!`);
+                btn.textContent = "✓ Ditambahkan";
+                btn.classList.add('bg-green-600', 'hover:bg-green-700');
+            });
+        });
+
+        // Counter jumlah
+        const minusBtn = document.querySelector('.bg-gray-200:first-child');
+        const plusBtn = document.querySelector('.bg-gray-200:last-child');
+        const quantityInput = document.querySelector('input[type="text"]');
+        
+        minusBtn.addEventListener('click', () => {
+            let val = parseInt(quantityInput.value);
+            if(val > 1) quantityInput.value = val - 1;
+        });
+        
+        plusBtn.addEventListener('click', () => {
+            let val = parseInt(quantityInput.value);
+            quantityInput.value = val + 1;
+        });
+
+        // Form submit
+        document.querySelector('button[class*="w-full bg-pink-600"]').addEventListener('click', () => {
+            alert('Pesanan berhasil dikirim! Kami akan menghubungi Anda.');
+        });
+    </script>
+</body>
+</html>
